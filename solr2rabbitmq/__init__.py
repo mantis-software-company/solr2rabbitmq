@@ -26,10 +26,10 @@ async def run(loop, logger=None, config=None, worker_pool_size=10):
 
     async def _publish(message):
         async with rabbitmq_channel_pool.acquire() as channel:
-            exchange = await channel.get_exchange(config.get("mq_target_exchange"))
+            exchange = await channel.get_exchange(config.get("mq_exchange"))
             await exchange.publish(
                 message=aio_pika.Message(message.encode("utf-8")),
-                routing_key=config.get("mq_target_routing_key")
+                routing_key=config.get("mq_routing_key")
             )
 
             if logger:
@@ -95,8 +95,8 @@ async def run(loop, logger=None, config=None, worker_pool_size=10):
             "mq_vhost": os.environ.get('MQ_VHOST'),
             "mq_user": os.environ.get('MQ_USER'),
             "mq_pass": os.environ.get('MQ_PASS'),
-            "mq_target_exchange": os.environ.get('MQ_TARGET_EXCHANGE'),
-            "mq_target_routing_key": os.environ.get("MQ_TARGET_ROUTING_KEY"),
+            "mq_exchange": os.environ.get('MQ_EXCHANGE'),
+            "mq_routing_key": os.environ.get("MQ_ROUTING_KEY"),
             "mq_queue_durable": bool(strtobool(os.environ.get('MQ_QUEUE_DURABLE', 'True'))),
             "solr_collection_url": os.environ.get("SOLR_COLLECTION_URL"),
             "solr_fetch_size": int(os.environ.get("SOLR_FETCH_SIZE"), 20),

@@ -32,8 +32,8 @@ if __name__ == '__main__':
        "mq_vhost": os.environ.get('MQ_VHOST'),
        "mq_user": os.environ.get('MQ_USER'),
        "mq_pass": os.environ.get('MQ_PASS'),
-       "mq_target_exchange": os.environ.get('MQ_TARGET_EXCHANGE'),
-       "mq_target_routing_key": os.environ.get("MQ_TARGET_ROUTING_KEY"),
+       "mq_exchange": os.environ.get('MQ_EXCHANGE'),
+       "mq_routing_key": os.environ.get("MQ_ROUTING_KEY"),
        "mq_queue_durable": bool(strtobool(os.environ.get('MQ_QUEUE_DURABLE', 'True'))),
        "solr_collection_url": os.environ.get("SOLR_COLLECTION_URL"),
        "solr_fetch_size": int(os.environ.get("SOLR_FETCH_SIZE")),
@@ -59,8 +59,8 @@ You can also call this library as standalone job command.  Just set required env
 - MQ_VHOST
 - MQ_USER
 - MQ_PASS
-- MQ_TARGET_EXCHANGE
-- MQ_TARGET_ROUTING_KEY
+- MQ_EXCHANGE
+- MQ_ROUTING_KEY
 - MQ_QUEUE_DURABLE (optional, default value: True)
 - SOLR_COLLECTION_URL (ex: `http://solr.local:8983/solr/publication/select`)
 - SOLR_FETCH_SIZE (optional, default value: 20)
