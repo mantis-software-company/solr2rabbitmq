@@ -1,0 +1,14 @@
+{
+    "query": {
+        "bool": {
+            "must": [
+                "title:(okul öncesi)"
+            ],
+            "must_not": [
+                "_nest_path_:*"
+            ]
+        }
+    },
+
+    "fields": "*,[child limit=-1]"
+}
