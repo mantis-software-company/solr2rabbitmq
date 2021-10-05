@@ -50,10 +50,16 @@ spec:
                 value: "mantis"
               - name: MQ_PASS
                 value: "mantis"
-              - name: MQ_EXCHANGE
+              - name: MQ_DATA_EXCHANGE
                 value: "solr2rabbitmq"
-              - name: MQ_ROUTING_KEY
+              - name: MQ_DATA_ROUTING_KEY
+                value: "solr2rabbitmq_data"
+              - name: MQ_PAGINATION_EXCHANGE
                 value: "solr2rabbitmq"
+              - name: MQ_PAGINATION_ROUTING_KEY
+                value: "solr2rabbitmq_pagination"
+              - name: MQ_PAGINATION_QUEUE
+                value: "pagination_offsets"
               - name: SOLR_COLLECTION_URL
                 value: "<SOLR_COLLECTION_URL>"
               - name: SOLR_FETCH_SIZE
