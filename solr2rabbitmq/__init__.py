@@ -27,7 +27,8 @@ async def run(loop, logger=None, config=None, worker_pool_size=10):
         ex = await channel.get_exchange(exchange)
         await ex.publish(
             message=aio_pika.Message(message.encode("utf-8")),
-            routing_key=routing_key
+            routing_key=routing_key,
+            delivery_mode=DeliveryMode.PERSISTENT
         )
 
         if logger:
