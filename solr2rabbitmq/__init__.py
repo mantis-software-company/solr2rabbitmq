@@ -89,7 +89,7 @@ async def run(loop, logger=None, config=None, worker_pool_size=10):
                                                        config.get("mq_data_exchange"),
                                                        config.get("mq_data_routing_key"))
 
-                            m.ack()
+                            await m.ack()
                         except Exception as e:
                             logger.error(f"Solr query or connection error: {e}")
 
