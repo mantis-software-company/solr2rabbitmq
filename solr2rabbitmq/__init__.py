@@ -5,6 +5,7 @@ import aio_pika
 import asyncio
 from distutils.util import strtobool
 from aio_pika.pool import Pool
+from aio_pika import DeliveryMode
 from jinja2 import Template
 
 
