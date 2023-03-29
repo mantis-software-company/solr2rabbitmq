@@ -189,6 +189,18 @@ async def run(loop, logger=None, config=None, worker_pool_size=10):
             "mode": os.environ.get("MODE")
         }
 
+        SOLR_BASE_URL = os.environ.get('SOLR_BASE_URL')
+        try:
+            with open(os.environ.get('SOLR_CONFIG_FILE')) as solr_config_file:
+                _j = json.loads(solr_config_file.read())
+                SOLR_BASE_URL = _j['url']
+        except:
+            pass
+
+        SOLR_COLLECTION_NAME = os.environ.get('SOLR_COLLECTION_NAME')
+
+        config["solr_collection_url"] = f"{SOLR_BASE_URL}/{SOLR_COLLECTION_NAME}"
+
     template_format = open(config.get("data_template_file_path")).read()
 
     if "worker_pool_size" in config:
