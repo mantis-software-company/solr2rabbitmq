@@ -26,7 +26,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.8"
     ],
     install_requires=['aiohttp', 'aio_pika', 'jinja2'],
-    python_requires=">3.6.*, <4",
+    python_requires=">3.6.*,!=4.*",
     packages=['solr2rabbitmq'],
     scripts=['bin/solr2rabbitmq']
 )
