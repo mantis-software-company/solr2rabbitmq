@@ -199,7 +199,7 @@ async def run(loop, logger=None, config=None, worker_pool_size=10):
 
         SOLR_COLLECTION_NAME = os.environ.get('SOLR_COLLECTION_NAME')
 
-        config["solr_collection_url"] = f"{SOLR_BASE_URL}/{SOLR_COLLECTION_NAME}"
+        config["solr_collection_url"] = f"{SOLR_BASE_URL}/{SOLR_COLLECTION_NAME}/select"
 
     template_format = open(config.get("data_template_file_path")).read()
 
