@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="solr2rabbitmq",
-    version="1.1.5",
+    version="1.1.6",
     author="Furkan Kalkan",
     author_email="furkankalkan@mantis.com.tr",
     description="Asynchronous RabbitMQ transfer job library from Apache Solr",
